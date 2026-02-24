@@ -16,7 +16,7 @@ onFlowFail:
     visible: "LOGIN"
     timeout: 30000
 
-# ✅ Se estiver ONLINE → desligar
+# Se estiver ONLINE → desligar
 - runFlow:
     when:
       visible: "Online"
