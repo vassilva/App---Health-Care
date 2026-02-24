@@ -7,7 +7,6 @@ onFlowFail:
 ---
 
 # Login
-# =====================
 
 - launchApp
 - waitForAnimationToEnd
