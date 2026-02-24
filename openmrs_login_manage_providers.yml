@@ -52,17 +52,17 @@ onFlowFail:
 - tapOn:
     text: "LOGIN"
 
-# =========================
+
 # Dashboard
-# =========================
+
 
 - extendedWaitUntil:
     visible: "Find Patients"
     timeout: 30000
 
-# =========================
+
 # Provider Manager
-# =========================
+
 
 - tapOn:
     text: "Manage Providers"
@@ -74,9 +74,9 @@ onFlowFail:
 - assertVisible:
     text: "No providers found."
 
-# =========================
+
 # Logout
-# =========================
+
 
 - tapOn:
     point: "96%,7%"
@@ -87,9 +87,9 @@ onFlowFail:
 - tapOn:
     text: "Logout admin"
 
-# =========================
+
 # Confirmação de logout
-# =========================
+
 
 - extendedWaitUntil:
     visible: "Logging out"
@@ -101,9 +101,9 @@ onFlowFail:
 - tapOn:
     text: "LOGOUT"
 
-# =========================
+
 # Validação final
-# =========================
+
 
 - extendedWaitUntil:
     visible: "LOGIN"
