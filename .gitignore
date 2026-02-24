@@ -1,0 +1,13 @@
+# Maestro artifacts
+.maestro/
+screenshots/
+*.png
+*.mp4
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store

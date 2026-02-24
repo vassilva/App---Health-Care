@@ -15,7 +15,7 @@ onFlowFail:
     visible: "LOGIN"
     timeout: 30000
 
-# Se estiver ONLINE → desligar
+# If ONLINE -> turn off
 - runFlow:
     when:
       visible: "Online"
@@ -23,7 +23,7 @@ onFlowFail:
       - tapOn:
           point: "70%,70%"
 
-# Garantir que ficou OFF
+# Ensure it is OFFLINE
 - extendedWaitUntil:
     visible: "Offline"
     timeout: 5000
@@ -80,7 +80,7 @@ onFlowFail:
 - tapOn:
     text: "Logout admin"
 
-# Confirmação de logout
+# Logout confirmation
 
 - extendedWaitUntil:
     visible: "Logging out"
@@ -92,7 +92,7 @@ onFlowFail:
 - tapOn:
     text: "LOGOUT"
 
-# Validação final 
+# Final validation
 
 - extendedWaitUntil:
     visible: "LOGIN"

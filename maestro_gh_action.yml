@@ -1,0 +1,31 @@
+name: Maestro Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: macos-latest # Maestro runs better on macOS for emulators
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Install Maestro
+        run: |
+          curl -Ls "https://get.maestro.mobile.dev" | bash
+          export PATH="$PATH:$HOME/.maestro/bin"
+          echo "MAESTRO_PATH=$HOME/.maestro/bin" >> $GITHUB_ENV
+
+      - name: Run Maestro Tests
+        run: |
+          export PATH="$PATH:${{ env.MAESTRO_PATH }}"
+          # Note: To run in CI, you would need an active emulator or use a service like Mobile.dev
+          # maestro test tests/openmrs_login_manage_providers.yml
