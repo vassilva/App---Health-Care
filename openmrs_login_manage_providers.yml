@@ -1,0 +1,112 @@
+appId: org.openmrs.mobile
+name: "OpenMRS - Login + Manage Providers + Logout Confirm"
+
+onFlowFail:
+  - takeScreenshot: "failure_openmrs"
+
+---
+# =========================
+# Login
+# =========================
+
+- launchApp
+- waitForAnimationToEnd
+
+- extendedWaitUntil:
+    visible: "LOGIN"
+    timeout: 30000
+
+# ✅ Se estiver ONLINE → desligar
+- runFlow:
+    when:
+      visible: "Online"
+    commands:
+      - tapOn:
+          point: "70%,70%"
+
+# Garantir que ficou OFF
+- extendedWaitUntil:
+    visible: "Offline"
+    timeout: 5000
+
+- tapOn:
+    text: ".*Username.*"
+- inputText: "admin"
+
+- tapOn:
+    text: ".*Password.*"
+- inputText: "Admin123"
+
+- tapOn:
+    text: ".*Session Location.*"
+
+- extendedWaitUntil:
+    visible: "Mobile Clinic"
+    timeout: 30000
+- tapOn:
+    text: "Mobile Clinic"
+
+- assertVisible:
+    text: "Mobile Clinic"
+
+- tapOn:
+    text: "LOGIN"
+
+# =========================
+# Dashboard
+# =========================
+
+- extendedWaitUntil:
+    visible: "Find Patients"
+    timeout: 30000
+
+# =========================
+# Provider Manager
+# =========================
+
+- tapOn:
+    text: "Manage Providers"
+
+- extendedWaitUntil:
+    visible: "Provider Manager"
+    timeout: 30000
+
+- assertVisible:
+    text: "No providers found."
+
+# =========================
+# Logout
+# =========================
+
+- tapOn:
+    point: "96%,7%"
+
+- extendedWaitUntil:
+    visible: "Logout admin"
+    timeout: 30000
+- tapOn:
+    text: "Logout admin"
+
+# =========================
+# Confirmação de logout
+# =========================
+
+- extendedWaitUntil:
+    visible: "Logging out"
+    timeout: 30000
+
+- assertVisible:
+    text: "Are you sure you want to logout from OpenMRS client?"
+
+- tapOn:
+    text: "LOGOUT"
+
+# =========================
+# Validação final
+# =========================
+
+- extendedWaitUntil:
+    visible: "LOGIN"
+    timeout: 30000
+
+- stopApp
