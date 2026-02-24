@@ -92,7 +92,7 @@ onFlowFail:
 - tapOn:
     text: "LOGOUT"
 
-# Validação final
+# Validação final T
 
 - extendedWaitUntil:
     visible: "LOGIN"
