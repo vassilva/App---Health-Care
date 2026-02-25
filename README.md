@@ -16,7 +16,7 @@ To run the main login and provider management flow:
 maestro test openmrs_login_manage_providers.yml
 ```
 
-## Project Structure - Test 
+## Project Structure 
 
 - `openmrs_login_manage_providers.yml`: Main test flow (Login -> Dashboard -> Manage Providers).
 - `screenshots/`: (Automatically generated) Contains test evidences.
