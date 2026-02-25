@@ -21,7 +21,7 @@ maestro test openmrs_login_manage_providers.yml
 - `openmrs_login_manage_providers.yml`: Main test flow (Login -> Dashboard -> Manage Providers).
 - `screenshots/`: (Automatically generated) Contains test evidences.
 
-##  Test Cases
+##  Test Cases:
 
 ### Login and Manage Providers
 1. Open the application.
